@@ -15,6 +15,7 @@ import jobSkills from '../assets/jobSkills.json'
 import summaries from '../assets/summaries.json'
 import { saveResumeAPI } from '../services/allAPI';
 import { useNavigate } from "react-router-dom";
+import {toast} from 'react-toastify'
 
 const steps = ['Basic Information', 'Contact Details', 'Educational Details', 'Review & Submit'];
 
@@ -116,8 +117,8 @@ summary) {
  console.log(response);
 
  if(response.status=="201"){
-  alert("Resume Added Successfully")
-  
+  toast.success("Resume Added Successfully")
+
   const resumeId=response.data.id
   setTimeout(()=>{
     navigate(`/resume/${resumeId}/view`)
@@ -125,7 +126,7 @@ summary) {
  }
   
 }else{
-alert("please fill missing fields ")
+toast.info("please fill missing fields ")
 
 // save resume
 
