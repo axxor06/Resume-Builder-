@@ -126,7 +126,7 @@ summary) {
  }
   
 }else{
-toast.info("please fill missing fields ")
+toast.warning("please fill missing fields ")
 
 // save resume
 
