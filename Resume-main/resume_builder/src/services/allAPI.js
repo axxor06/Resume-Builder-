@@ -16,3 +16,10 @@ export const viewResumeAPI = async (resumeId) => {
     return await apiService('GET', `/resumes`, {});
 
  }
+
+ //DownloadApi
+
+  export const downloadResumeAPI = async (resumeDetails) => {
+    return await apiService('POST', `/downloads`,resumeDetails);
+
+ }
