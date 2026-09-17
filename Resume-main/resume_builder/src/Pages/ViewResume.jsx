@@ -2,10 +2,10 @@ import React, { useEffect, useRef, useState } from 'react'
 import Preview from '../Components/Preview'
 import { FaFileDownload, FaEdit } from 'react-icons/fa'
 import { AiFillBackward } from 'react-icons/ai'
-import { generatePath, Link, useParams } from 'react-router-dom'
-import { viewResumeAPI } from '../services/allAPI'
+import { Link, useParams } from 'react-router-dom'
+import { viewResumeAPI, downloadResumeAPI } from '../services/allAPI'
 import html2canvas from 'html2canvas'
-// import { jspdf } from "jspdf"
+import { jsPDF } from 'jspdf'
 
 function ViewResume() {
 
@@ -28,33 +28,40 @@ function ViewResume() {
   }
 
   const downloadCV = async () => {
-   const previewTag=previewRef.current
-   const canvas=await html2canvas(previewTag)
-   console.log(canvas);
-   
-   canvas.toBlob((blob)=>{
-    const shortUrl=URL.createObjectURL(blob)
-    generatePDF(shortUrl)
-   })
+    const previewTag = previewRef.current
+    const canvas = await html2canvas(previewTag)
+
+    canvas.toBlob((blob) => {
+      const shortUrl = URL.createObjectURL(blob)
+      generatePDF(shortUrl)
+    })
   }
 
-
-  const generatePDF = async(resumeImg)=>{
+  const generatePDF = async (resumeImg) => {
 
     let today = new Date()
 
-    let timestamp=`${today.toLocaleDateString()},${today.toLocalTimeString()}`;
-    const pdf = new jspdf();
+    let timestamp = `${today.toLocaleDateString()}, ${today.toLocaleTimeString()}`
 
+    const pdf = new jsPDF()
 
     const imageWidth = pdf.internal.pageSize.getWidth()
-    const imageHeight = pdf.internal.pageSize.getWidth()
-    pdf.addImage(resumeImg,"PNG",0,onabort,imageWidth,imageHeight)
-  
-  
-  }
+    const imageHeight = pdf.internal.pageSize.getHeight()
 
-  
+    pdf.addImage(resumeImg, "PNG", 0, 0, imageWidth, imageHeight)
+
+    const downloadDetails = {
+      timestamp,
+      resumeId: id,
+      resumeImg
+    }
+
+    const result = await downloadResumeAPI(downloadDetails)
+
+    if (result.status == '201') {
+      pdf.save(`${result.data.fullname}-CV.pdf`)
+    }
+  }
 
   return (
     <>
