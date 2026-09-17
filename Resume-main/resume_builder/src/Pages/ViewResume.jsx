@@ -38,26 +38,17 @@ function ViewResume() {
   }
 
   const generatePDF = async (resumeImg) => {
-
     let today = new Date()
-
     let timestamp = `${today.toLocaleDateString()}, ${today.toLocaleTimeString()}`
-
     const pdf = new jsPDF()
-
     const imageWidth = pdf.internal.pageSize.getWidth()
     const imageHeight = pdf.internal.pageSize.getHeight()
 
     pdf.addImage(resumeImg, "PNG", 0, 0, imageWidth, imageHeight)
 
-    const downloadDetails = {
-      timestamp,
-      resumeId: id,
-      resumeImg
+    const downloadDetails = { timestamp,resumeId:id,resumeImg
     }
-
     const result = await downloadResumeAPI(downloadDetails)
-
     if (result.status == '201') {
       pdf.save(`${result.data.fullname}-CV.pdf`)
     }
@@ -67,19 +58,15 @@ function ViewResume() {
     <>
       <div className="container my-5">
         <div className="row">
-
           <div className="col-lg-2"></div>
-
           <div className="col-lg-8">
-
             <div className="d-flex justify-content-center align-items-center">
 
               <button
                 onClick={downloadCV}
                 style={{ color: '#714a2f' }}
-                className="btn me-2"
-              >
-                <FaFileDownload className="fs-5" />
+                className="btn me-2" >
+              <FaFileDownload className="fs-5" />
                 Download CV
               </button>
 
