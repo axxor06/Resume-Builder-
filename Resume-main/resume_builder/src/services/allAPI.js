@@ -23,3 +23,10 @@ export const viewResumeAPI = async (resumeId) => {
     return await apiService('POST', `/downloads`,resumeDetails);
 
  }
+
+  export const getAllDownloadResumeAPI = async () => {
+    return await apiService('GET', `/downloads`,{});
+
+ }
+
+

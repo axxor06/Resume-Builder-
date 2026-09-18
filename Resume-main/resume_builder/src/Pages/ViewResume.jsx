@@ -1,11 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react'
 import Preview from '../Components/Preview'
-import { FaFileDownload, FaEdit } from 'react-icons/fa'
+import { FaFileDownload } from 'react-icons/fa'
 import { AiFillBackward } from 'react-icons/ai'
 import { Link, useParams } from 'react-router-dom'
 import { viewResumeAPI, downloadResumeAPI } from '../services/allAPI'
 import html2canvas from 'html2canvas'
 import { jsPDF } from 'jspdf'
+import Edit from '../Components/Edit'
 
 function ViewResume() {
 
@@ -13,93 +14,64 @@ function ViewResume() {
   const [resume, setResume] = useState({})
   const previewRef = useRef()
 
-  console.log(resume)
-
   useEffect(() => {
     getAresume()
   }, [id])
 
   const getAresume = async () => {
     const response = await viewResumeAPI(id)
-
-    if (response.status == "200") {
-      setResume(response.data)
-    }
+    if (response.status == 200) setResume(response.data)
   }
 
   const downloadCV = async () => {
-    const previewTag = previewRef.current
-    const canvas = await html2canvas(previewTag)
-
-    canvas.toBlob((blob) => {
-      const shortUrl = URL.createObjectURL(blob)
-      generatePDF(shortUrl)
-    })
+    const canvas = await html2canvas(previewRef.current)
+    const resumeImg = canvas.toDataURL('image/png')
+    generatePDF(resumeImg)
   }
 
   const generatePDF = async (resumeImg) => {
-    let today = new Date()
-    let timestamp = `${today.toLocaleDateString()}, ${today.toLocaleTimeString()}`
+    const today = new Date()
+    const timestamp = `${today.toLocaleDateString()}, ${today.toLocaleTimeString()}`
     const pdf = new jsPDF()
     const imageWidth = pdf.internal.pageSize.getWidth()
     const imageHeight = pdf.internal.pageSize.getHeight()
 
-    pdf.addImage(resumeImg, "PNG", 0, 0, imageWidth, imageHeight)
+    pdf.addImage(resumeImg, 'PNG', 0, 0, imageWidth, imageHeight)
 
-    const downloadDetails = { timestamp,resumeId:id,resumeImg
-    }
+    const downloadDetails = { timestamp, resumeId:id, resumeImg }
     const result = await downloadResumeAPI(downloadDetails)
-    if (result.status == '201') {
-      pdf.save(`${result.data.fullname}-CV.pdf`)
-    }
+
+    if (result.status == 201) pdf.save(`${result.data.fullname}-CV.pdf`)
   }
 
   return (
-    <>
-      <div className="container my-5">
-        <div className="row">
-          <div className="col-lg-2"></div>
-          <div className="col-lg-8">
-            <div className="d-flex justify-content-center align-items-center">
+    <div className="container my-5">
+      <div className="row">
+        <div className="col-lg-2"></div>
 
-              <button
-                onClick={downloadCV}
-                style={{ color: '#714a2f' }}
-                className="btn me-2" >
-              <FaFileDownload className="fs-5" />
-                Download CV
-              </button>
+        <div className="col-lg-8">
+          <div className="d-flex justify-content-center align-items-center">
 
-              <button
-                style={{ color: '#714a2f' }}
-                className="btn me-2"
-              >
-                <FaEdit className="fs-5" />
-                Edit
-              </button>
+            <button onClick={downloadCV} style={{color:'#714a2f'}} className="btn me-2">
+              <FaFileDownload className="fs-5" /> Download CV
+            </button>
 
-              <Link
-                to="/"
-                style={{ color: '#714a2f' }}
-                className="btn"
-              >
-                <AiFillBackward className="fs-5" />
-                Home
-              </Link>
+            <Edit resumeData={resume} setResumedata={setResume}/>
 
-            </div>
-
-            <div className="p-5" ref={previewRef}>
-              <Preview resumeData={resume} />
-            </div>
+            <Link to="/" style={{color:'#714a2f'}} className="btn">
+              <AiFillBackward className="fs-5" /> Home
+            </Link>
 
           </div>
 
-          <div className="col-lg-2"></div>
-
+          <div className="p-5" ref={previewRef}>
+            <Preview resumeData={resume} />
+          </div>
         </div>
+
+        <div className="col-lg-2"></div>
       </div>
-    </>
+    </div>
   )
 }
 
