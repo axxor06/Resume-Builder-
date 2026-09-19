@@ -86,13 +86,13 @@
       "location": "Palakkad",
       "job": "Data Analyst",
       "email": "arjunkrishnanps6@gmail.com",
-      "phone": "1234",
+      "phone": "7902967717",
       "contact": "",
-      "github": "adssdasdda",
-      "linkedin": "sasda",
-      "degree": "1234567890",
-      "college": "12rt",
-      "year": "fedafds",
+      "github": "https://github.com/axxor06",
+      "linkedin": "https://www.linkedin.com/in/arjun-krishnan-p-s-308ba2365/",
+      "degree": "Computer hardware engineering",
+      "college": "GPTC PALAKKAD",
+      "year": "2026",
       "skills": [
         "SQL",
         "Excel",
@@ -404,6 +404,33 @@
       ],
       "summary": "SEO specialist experienced in optimizing websites to improve search engine rankings, increase organic traffic, and enhance online visibility.",
       "id": 15
+    },
+    {
+      "fullName": "Athul dev",
+      "location": "Sreekrishna puram high school",
+      "job": "Frontend Developer",
+      "email": "athuldev6@gmail.com",
+      "phone": "785612985",
+      "contact": "",
+      "github": "https://github.com/athul06",
+      "linkedin": "https://www.linkedin.com/in/athul-dev-308ba2365/",
+      "degree": "Computer engg",
+      "college": "Kochin University",
+      "year": "2028",
+      "skills": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "React",
+        "Responsive Design",
+        "Tailwind CSS",
+        "Bootstrap",
+        "DOM Manipulation",
+        "Cross Browser Compatibility",
+        "Git"
+      ],
+      "summary": "Creative frontend developer with expertise in building responsive and user-friendly web interfaces using HTML, CSS, JavaScript, and modern frameworks. Passionate about creating engaging user experiences and optimizing web performance.",
+      "id": 16
     }
   ],
   "downloads": [

@@ -24,8 +24,16 @@ export const viewResumeAPI = async (resumeId) => {
 
  }
 
+
+ //Get all download
   export const getAllDownloadResumeAPI = async () => {
     return await apiService('GET', `/downloads`,{});
+
+ }
+
+//Update 
+  export const updateResumeAPI = async (resumeId,resumeDetails) => {
+    return await apiService('PUT',  `/resumes/${resumeId}`,resumeDetails);
 
  }
 
