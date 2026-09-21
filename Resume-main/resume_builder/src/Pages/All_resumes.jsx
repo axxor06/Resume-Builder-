@@ -1,19 +1,23 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { FaSearch, FaTrash } from 'react-icons/fa'
-import { allResumeAPI } from '../services/allAPI'
+import { allResumeAPI, deleteResumeAPI } from '../services/allAPI'
+
 function All_resumes() {
 
   const [allResumes, setAllResumes] = useState([])
-
-  console.log(allResumes)
+  const [searchKey, setSearchKey] = useState('')
 
   useEffect(() => {
     getAllResumes()
   }, [])
 
+  const searchOut = useMemo(() => {
+    return allResumes.filter(item => item.job.toLowerCase().includes(searchKey.toLowerCase()))
+  }, [allResumes, searchKey])
+
   const getAllResumes = async () => {
-const response = await allResumeAPI()
+    const response = await allResumeAPI()
     console.log(response)
 
     if (response.status == "200") {
@@ -21,9 +25,18 @@ const response = await allResumeAPI()
     }
   }
 
+  const removeResume = async (id) => {
+    if (confirm("are you sure")) {
+      const response = await deleteResumeAPI(id)
+
+      if (response.status == "200") {
+        getAllResumes()
+      }
+    }
+  }
+
   return (
     <div className="my-5 container d-flex justify-content-center align-items-center flex-column">
-
       <h1>All Saved Resumes</h1>
 
       <p style={{ textAlign: 'justify' }} className="my-5">
@@ -31,16 +44,11 @@ const response = await allResumeAPI()
       </p>
 
       <div className="d-flex justify-content-center align-items-center w-50">
-        <input
-          type="text"
-          placeholder="Search Candidate by their Job Roles"
-          className="form-control"
-        />
+        <input onChange={e => setSearchKey(e.target.value)} type="text" placeholder="Search Candidate by their Job Roles" className="form-control" />
         <FaSearch style={{ marginLeft: '-30px' }} />
       </div>
 
       <table className="my-5 table table-hover table-striped">
-
         <thead>
           <tr className="table-dark">
             <th>#</th>
@@ -51,37 +59,18 @@ const response = await allResumeAPI()
         </thead>
 
         <tbody>
-
-          {
-            allResumes.map((item, index) => (
+          {searchOut.length > 0 ?
+            searchOut.map((item, index) => (
               <tr key={item.id}>
-
                 <td>{index + 1}</td>
-
-                <td>
-                  <Link to={`/viewresume/${item.id}`}>
-                    {item.fullName}
-                  </Link>
-                </td>
-
-                <td>
-                  {item.jobRole}
-                </td>
-
-                <td>
-                  <button className="btn text-danger">
-                    <FaTrash />
-                  </button>
-                </td>
-
+                <td><Link to={`/viewresume/${item.id}`}>{item.fullName?.toUpperCase()}</Link></td>
+                <td>{item.job?.toUpperCase()}</td>
+                <td><button onClick={() => removeResume(item?.id)} className="btn text-danger"><FaTrash /></button></td>
               </tr>
-            ))
+            )) : <p>No Resume Here!</p>
           }
-
         </tbody>
-
       </table>
-
     </div>
   )
 }

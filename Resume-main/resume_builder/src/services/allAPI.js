@@ -37,4 +37,9 @@ export const viewResumeAPI = async (resumeId) => {
 
  }
 
+ //Delete 
+  export const deleteResumeAPI = async (resumeId) => {
+    return await apiService('DELETE',  `/resumes/${resumeId}`,{})
+
+ }
 
