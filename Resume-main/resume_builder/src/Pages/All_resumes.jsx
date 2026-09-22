@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { FaSearch, FaTrash } from 'react-icons/fa'
+import { FaSearch, FaTrash, FaForward, FaBackward } from 'react-icons/fa'
 import { allResumeAPI, deleteResumeAPI } from '../services/allAPI'
 
 function All_resumes() {
@@ -22,6 +22,7 @@ function All_resumes() {
   const lastIndexOfCurrentPage = currentPage * rowsPerPage
   const firstIndexOfCurrentPage = lastIndexOfCurrentPage - rowsPerPage
   const currentResume = searchOutput.slice(firstIndexOfCurrentPage, lastIndexOfCurrentPage)
+  const totalPages = Math.ceil(searchOutput.length / rowsPerPage)
 
   const getAllResumes = async () => {
     const response = await allResumeAPI()
@@ -52,7 +53,7 @@ function All_resumes() {
       </p>
 
       <div className="d-flex justify-content-center align-items-center w-50">
-        <input onChange={e => setSearchKey(e.target.value)} type="text" placeholder="Search Candidate by their Job Roles" className="form-control" />
+        <input onChange={e => { setSearchKey(e.target.value); setCurrentPage(1) }} type="text" placeholder="Search Candidate by their Job Roles" className="form-control" />
         <FaSearch style={{ marginLeft: '-30px' }} />
       </div>
 
@@ -79,9 +80,16 @@ function All_resumes() {
           }
         </tbody>
       </table>
+
+      <div className='d-flex align-items-center'>
+        <button className='btn' onClick={() => setCurrentPage(currentPage - 1)} disabled={currentPage == 1 || totalPages == 0}><FaBackward /></button>
+
+     {currentPage} of {totalPages}
+
+        <button className='btn' onClick={() => setCurrentPage(currentPage + 1)} disabled={currentPage == totalPages || totalPages == 0}><FaForward /></button>
+      </div>
     </div>
   )
 }
 
 export default All_resumes
-

@@ -24,9 +24,27 @@ function ViewResume() {
   }
 
   const downloadCV = async () => {
-    const canvas = await html2canvas(previewRef.current)
-    const resumeImg = canvas.toDataURL('image/png')
-    generatePDF(resumeImg)
+    const previewTag = previewRef.current
+    const canvas = await html2canvas(previewTag)
+
+    canvas.toBlob(async (imgFile) => {
+      const formData = new FormData()
+      formData.append("file", imgFile)
+      formData.append("upload_preset", "resumes")
+
+      const result = await fetch('https://api.cloudinary.com/v1_1/bzd00fro/auto/upload', {
+        method: "POST",
+        body: formData
+      })
+
+      const serverData = await result.json()
+      console.log(serverData)
+
+      const url = serverData.secure_url
+      console.log(url)
+
+      generatePDF(url)
+    })
   }
 
   const generatePDF = async (resumeImg) => {
@@ -38,7 +56,7 @@ function ViewResume() {
 
     pdf.addImage(resumeImg, 'PNG', 0, 0, imageWidth, imageHeight)
 
-    const downloadDetails = { timestamp, resumeId:id, resumeImg }
+    const downloadDetails = { timestamp, resumeId: id, resumeImg }
     const result = await downloadResumeAPI(downloadDetails)
 
     if (result.status == 201) pdf.save(`${result.data.fullname}-CV.pdf`)

@@ -56,7 +56,7 @@
     },
     {
       "fullName": "Antriya",
-      "location": "Palakkad",
+      "location": "Ernakulam",
       "job": "Backend Developer",
       "email": "arjunkrishnanps6@gmail.com",
       "phone": "7902967717",
@@ -165,5 +165,12 @@
       "id": 6
     }
   ],
-  "downloads": []
+  "downloads": [
+    {
+      "timestamp": "9/22/2026, 11:10:09 AM",
+      "resumeId": "3",
+      "resumeImg": "https://res.cloudinary.com/bzd00fro/image/upload/v1790055605/p8wpkiqtsui2wctr7ikp.png",
+      "id": 1
+    }
+  ]
 }
