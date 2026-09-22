@@ -107,6 +107,62 @@
       ],
       "summary": "Backend developer experienced in building secure and scalable server-side applications. Skilled in REST API development, database management, and ensuring application performance and reliability.",
       "id": 4
+    },
+    {
+      "fullName": "Anitha ",
+      "location": "Mangode",
+      "job": "Product Manager",
+      "email": "anitha1@gmail.com",
+      "phone": "9526767058",
+      "contact": "",
+      "github": "anitha@github.com",
+      "linkedin": "anitha@linkedin",
+      "degree": "Computer science ",
+      "college": "VTB college ",
+      "year": "1990",
+      "skills": [
+        "Product Strategy",
+        "Market Research",
+        "Roadmap Planning",
+        "Stakeholder Management",
+        "Agile Methodology",
+        "User Story Creation",
+        "Product Lifecycle Management",
+        "Data Analysis",
+        "Leadership",
+        "Communication",
+        "Strong minded"
+      ],
+      "summary": "Product manager skilled in defining product strategies, managing product roadmaps, and delivering solutions that meet user and business needs.",
+      "id": 5
+    },
+    {
+      "fullName": "Sreekrishnan.p",
+      "location": "Peringode",
+      "job": "Business Analyst",
+      "email": "sreekrishnanp7@gmail.com",
+      "phone": "7306318663",
+      "contact": "",
+      "github": "sreekrishnanp@github",
+      "linkedin": "sreekrishnanp@linkedin",
+      "degree": "IT ",
+      "college": "Victoriya college",
+      "year": "1983",
+      "skills": [
+        "Requirement Gathering",
+        "Business Process Analysis",
+        "Data Analysis",
+        "Stakeholder Communication",
+        "Documentation",
+        "Process Improvement",
+        "SQL",
+        "Agile Methodology",
+        "Problem Solving",
+        "Reporting",
+        "Team work"
+      ],
+      "summary": "Business analyst experienced in analyzing business processes, gathering requirements, and providing data-driven insights to support strategic decision-making.",
+      "id": 6
     }
   ],
   "downloads": []

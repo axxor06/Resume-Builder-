@@ -12,7 +12,7 @@ function All_resumes() {
     getAllResumes()
   }, [])
 
-  const searchOut = useMemo(() => {
+  const searchOutput = useMemo(() => {
     return allResumes.filter(item => item.job.toLowerCase().includes(searchKey.toLowerCase()))
   }, [allResumes, searchKey])
 
@@ -54,20 +54,20 @@ function All_resumes() {
             <th>#</th>
             <th>Resume</th>
             <th>Job Role</th>
-            <th>...</th>
+            <th>options</th>
           </tr>
         </thead>
 
         <tbody>
-          {searchOut.length > 0 ?
-            searchOut.map((item, index) => (
+          {searchOutput.length > 0 ?
+            searchOutput.map((item, index) => (
               <tr key={item.id}>
                 <td>{index + 1}</td>
-                <td><Link to={`/viewresume/${item.id}`}>{item.fullName?.toUpperCase()}</Link></td>
+                <td><Link to={`/resume/${item.id}/view`}>{item.fullName?.toUpperCase()}</Link></td>
                 <td>{item.job?.toUpperCase()}</td>
                 <td><button onClick={() => removeResume(item?.id)} className="btn text-danger"><FaTrash /></button></td>
               </tr>
-            )) : <p>No Resume Here!</p>
+            )) : <tr><td colSpan="4">No Resume Here!</td></tr>
           }
         </tbody>
       </table>
