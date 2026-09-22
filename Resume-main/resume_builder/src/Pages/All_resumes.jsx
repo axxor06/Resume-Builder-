@@ -6,22 +6,30 @@ import { allResumeAPI, deleteResumeAPI } from '../services/allAPI'
 function All_resumes() {
 
   const [allResumes, setAllResumes] = useState([])
+  const [dummyResumes, setDummyResumes] = useState([])
   const [searchKey, setSearchKey] = useState('')
+  const [currentPage, setCurrentPage] = useState(1)
+  const rowsPerPage = 4
 
   useEffect(() => {
     getAllResumes()
   }, [])
 
   const searchOutput = useMemo(() => {
-    return allResumes.filter(item => item.job.toLowerCase().includes(searchKey.toLowerCase()))
-  }, [allResumes, searchKey])
+    return dummyResumes.filter(item => item.job.toLowerCase().includes(searchKey.toLowerCase()))
+  }, [dummyResumes, searchKey])
+
+  const lastIndexOfCurrentPage = currentPage * rowsPerPage
+  const firstIndexOfCurrentPage = lastIndexOfCurrentPage - rowsPerPage
+  const currentResume = searchOutput.slice(firstIndexOfCurrentPage, lastIndexOfCurrentPage)
 
   const getAllResumes = async () => {
     const response = await allResumeAPI()
     console.log(response)
 
-    if (response.status == "200") {
+    if (response?.status == "200") {
       setAllResumes(response.data)
+      setDummyResumes(response.data)
     }
   }
 
@@ -29,7 +37,7 @@ function All_resumes() {
     if (confirm("are you sure")) {
       const response = await deleteResumeAPI(id)
 
-      if (response.status == "200") {
+      if (response?.status == "200") {
         getAllResumes()
       }
     }
@@ -59,10 +67,10 @@ function All_resumes() {
         </thead>
 
         <tbody>
-          {searchOutput.length > 0 ?
-            searchOutput.map((item, index) => (
+          {currentResume.length > 0 ?
+            currentResume.map((item, index) => (
               <tr key={item.id}>
-                <td>{index + 1}</td>
+                <td>{firstIndexOfCurrentPage + index + 1}</td>
                 <td><Link to={`/resume/${item.id}/view`}>{item.fullName?.toUpperCase()}</Link></td>
                 <td>{item.job?.toUpperCase()}</td>
                 <td><button onClick={() => removeResume(item?.id)} className="btn text-danger"><FaTrash /></button></td>
@@ -76,3 +84,4 @@ function All_resumes() {
 }
 
 export default All_resumes
+
