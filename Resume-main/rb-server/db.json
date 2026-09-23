@@ -163,6 +163,33 @@
       ],
       "summary": "Business analyst experienced in analyzing business processes, gathering requirements, and providing data-driven insights to support strategic decision-making.",
       "id": 6
+    },
+    {
+      "fullName": "Jishnu",
+      "location": "Kongad",
+      "job": "Product Manager",
+      "email": "jishnu@gmail.com",
+      "phone": "7896542337",
+      "contact": "",
+      "github": "jishhnu@github",
+      "linkedin": "jishnu@linkedin ",
+      "degree": "Computer engg",
+      "college": "GPTC Palakkad",
+      "year": "2026",
+      "skills": [
+        "Product Strategy",
+        "Market Research",
+        "Roadmap Planning",
+        "Stakeholder Management",
+        "Agile Methodology",
+        "User Story Creation",
+        "Product Lifecycle Management",
+        "Data Analysis",
+        "Leadership",
+        "Communication"
+      ],
+      "summary": "Product manager skilled in defining product strategies, managing product roadmaps, and delivering solutions that meet user and business needs.",
+      "id": 7
     }
   ],
   "downloads": [
@@ -171,6 +198,62 @@
       "resumeId": "3",
       "resumeImg": "https://res.cloudinary.com/bzd00fro/image/upload/v1790055605/p8wpkiqtsui2wctr7ikp.png",
       "id": 1
+    },
+    {
+      "timestamp": "9/23/2026, 10:58:11 AM",
+      "resumeId": "1",
+      "resumeImg": "https://res.cloudinary.com/bzd00fro/image/upload/v1790141287/u7njl53qhljc5suomt3k.png",
+      "jobRole": "Backend Developer",
+      "id": 2
+    },
+    {
+      "timestamp": "9/23/2026, 10:58:22 AM",
+      "resumeId": "2",
+      "resumeImg": "https://res.cloudinary.com/bzd00fro/image/upload/v1790141298/hxken8rioyfpokf7vfts.png",
+      "jobRole": "Backend Developer",
+      "id": 3
+    },
+    {
+      "timestamp": "9/23/2026, 10:58:30 AM",
+      "resumeId": "3",
+      "resumeImg": "https://res.cloudinary.com/bzd00fro/image/upload/v1790141305/u506ghs2narsukhunhis.png",
+      "jobRole": "Backend Developer",
+      "id": 4
+    },
+    {
+      "timestamp": "9/23/2026, 10:58:40 AM",
+      "resumeId": "4",
+      "resumeImg": "https://res.cloudinary.com/bzd00fro/image/upload/v1790141316/qwjjyzvn3rgk3ifhcczz.png",
+      "jobRole": "Backend Developer",
+      "id": 5
+    },
+    {
+      "timestamp": "9/23/2026, 10:59:38 AM",
+      "resumeId": "1",
+      "resumeImg": "https://res.cloudinary.com/bzd00fro/image/upload/v1790141374/haubymiaa9fgku36zvic.png",
+      "jobRole": "Backend Developer",
+      "id": 6
+    },
+    {
+      "timestamp": "9/23/2026, 11:02:17 AM",
+      "resumeId": "1",
+      "resumeImg": "https://res.cloudinary.com/bzd00fro/image/upload/v1790141533/jl1q4lb2b7ehyffauly6.png",
+      "jobRole": "Backend Developer",
+      "id": 7
+    },
+    {
+      "timestamp": "9/23/2026, 11:02:42 AM",
+      "resumeId": "1",
+      "resumeImg": "https://res.cloudinary.com/bzd00fro/image/upload/v1790141558/cdoxpmmjybzdabiaq86u.png",
+      "jobRole": "Backend Developer",
+      "id": 8
+    },
+    {
+      "timestamp": "9/23/2026, 11:04:44 AM",
+      "resumeId": "1",
+      "resumeImg": "https://res.cloudinary.com/bzd00fro/image/upload/v1790141680/bfeeptix20db8s8rixrv.png",
+      "jobRole": "Backend Developer",
+      "id": 9
     }
   ]
 }
