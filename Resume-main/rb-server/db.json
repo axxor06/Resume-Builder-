@@ -190,6 +190,87 @@
       ],
       "summary": "Product manager skilled in defining product strategies, managing product roadmaps, and delivering solutions that meet user and business needs.",
       "id": 7
+    },
+    {
+      "fullName": "Amal",
+      "location": "New york ",
+      "job": "Node.js Developer",
+      "email": "qadfsdfsf",
+      "phone": "asdfsdfs",
+      "contact": "",
+      "github": "sdfsdfsdfsdfs",
+      "linkedin": "sdfsfsfd",
+      "degree": "sfdsd",
+      "college": "sfdsdfs",
+      "year": "sfs",
+      "skills": [
+        "Node.js",
+        "Express.js",
+        "REST APIs",
+        "MongoDB",
+        "Authentication",
+        "Middleware",
+        "Server Side Logic",
+        "API Security",
+        "Database Integration",
+        "Git"
+      ],
+      "summary": "Node.js developer experienced in building scalable backend services and REST APIs. Skilled in server-side development, database integration, and performance optimization.",
+      "id": 8
+    },
+    {
+      "fullName": "anu",
+      "location": "adsa",
+      "job": "Content Writer",
+      "email": "adsasda",
+      "phone": "adeedase",
+      "contact": "",
+      "github": "sfdsdfasdf",
+      "linkedin": "afdsasd",
+      "degree": "sfsa",
+      "college": "dfasd",
+      "year": "sdfsdf",
+      "skills": [
+        "Content Writing",
+        "SEO Writing",
+        "Research",
+        "Editing",
+        "Storytelling",
+        "Blog Writing",
+        "Copywriting",
+        "Content Strategy",
+        "Proofreading",
+        "Creative Writing"
+      ],
+      "summary": "Content writer skilled in creating engaging and informative content for websites, blogs, and marketing campaigns with a strong focus on storytelling and clarity.",
+      "id": 9
+    },
+    {
+      "fullName": "asdas",
+      "location": "sdfas",
+      "job": "DevOps Engineer",
+      "email": "sdfas",
+      "phone": "adfas",
+      "contact": "",
+      "github": "sdfsad",
+      "linkedin": "asdfas",
+      "degree": "sadfa",
+      "college": "asdfas",
+      "year": "dfasfdas",
+      "skills": [
+        "Docker",
+        "Kubernetes",
+        "CI/CD",
+        "AWS",
+        "Linux",
+        "Jenkins",
+        "Terraform",
+        "Git",
+        "Monitoring",
+        "Infrastructure as Code"
+      ],
+      "summary": "DevOps engineer experienced in automating deployment pipelines, managing cloud infrastructure, and improving software delivery processes through CI/CD practices.",
+      "id": 10
     }
   ],
   "downloads": [
@@ -254,6 +335,55 @@
       "resumeImg": "https://res.cloudinary.com/bzd00fro/image/upload/v1790141680/bfeeptix20db8s8rixrv.png",
       "jobRole": "Backend Developer",
       "id": 9
+    },
+    {
+      "timestamp": "9/24/2026, 9:26:53 AM",
+      "resumeId": "8",
+      "resumeImg": "https://res.cloudinary.com/bzd00fro/image/upload/v1790222210/xp4je65225nfmaxracpq.png",
+      "jobRole": "Node.js Developer",
+      "id": 10
+    },
+    {
+      "timestamp": "9/24/2026, 9:27:31 AM",
+      "resumeId": "9",
+      "resumeImg": "https://res.cloudinary.com/bzd00fro/image/upload/v1790222247/impwma9zebobrg645ij9.png",
+      "jobRole": "Content Writer",
+      "id": 11
+    },
+    {
+      "timestamp": "9/24/2026, 9:27:59 AM",
+      "resumeId": "10",
+      "resumeImg": "https://res.cloudinary.com/bzd00fro/image/upload/v1790222275/zcl0bpspdgoaavnysoxq.png",
+      "jobRole": "DevOps Engineer",
+      "id": 12
+    },
+    {
+      "timestamp": "9/24/2026, 9:33:47 AM",
+      "resumeId": "3",
+      "resumeImg": "https://res.cloudinary.com/bzd00fro/image/upload/v1790222624/ripqet3yyg0rgxyhkyeb.png",
+      "jobRole": "Backend Developer",
+      "id": 13
+    },
+    {
+      "timestamp": "9/24/2026, 9:33:59 AM",
+      "resumeId": "3",
+      "resumeImg": "https://res.cloudinary.com/bzd00fro/image/upload/v1790222636/qjahw5zeh2svoytduinx.png",
+      "jobRole": "Backend Developer",
+      "id": 14
+    },
+    {
+      "timestamp": "9/24/2026, 9:36:59 AM",
+      "resumeId": "3",
+      "resumeImg": "https://res.cloudinary.com/bzd00fro/image/upload/v1790222816/yrxwoea3zewde4ezbhk3.png",
+      "jobRole": "Backend Developer",
+      "id": 15
+    },
+    {
+      "timestamp": "9/24/2026, 9:38:18 AM",
+      "resumeId": "3",
+      "resumeImg": "https://res.cloudinary.com/bzd00fro/image/upload/v1790222894/b5zyogrha43evvf131d9.png",
+      "jobRole": "Backend Developer",
+      "id": 16
     }
   ]
 }

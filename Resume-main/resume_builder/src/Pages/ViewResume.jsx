@@ -28,11 +28,10 @@ function ViewResume() {
     const canvas = await html2canvas(previewTag)
 
     canvas.toBlob(async (imgFile) => {
-      //create formData to send file via API
       const formData = new FormData()
       formData.append("file", imgFile)
       formData.append("upload_preset", "resumes")
-      //cloudinary API 
+
       const result = await fetch('https://api.cloudinary.com/v1_1/bzd00fro/auto/upload', {
         method: "POST",
         body: formData
@@ -42,36 +41,41 @@ function ViewResume() {
       console.log(serverData)
 
       const url = serverData.secure_url
-      // console.log(url)
 
-      generatePDF(url)
+      generatePDF(url, resume.fullName)
     })
   }
 
-  const generatePDF = async (resumeImg) => {
+  const generatePDF = async (resumeImg, fullName) => {
     const today = new Date()
     const timestamp = `${today.toLocaleDateString()}, ${today.toLocaleTimeString()}`
     const pdf = new jsPDF()
+
     const imageWidth = pdf.internal.pageSize.getWidth()
     const imageHeight = pdf.internal.pageSize.getHeight()
 
     pdf.addImage(resumeImg, 'PNG', 0, 0, imageWidth, imageHeight)
 
-    const downloadDetails = { 
-      timestamp, resumeId: id, resumeImg,jobRole:resume.job
+    const downloadDetails = {
+      timestamp,
+      resumeId: id,
+      resumeImg,
+      jobRole: resume.job
+    }
 
-     }
     const result = await downloadResumeAPI(downloadDetails)
 
-if (result.status == 201) pdf.save(`${resume.name}-CV.pdf`)     
+    if (result.status == 201) pdf.save(`${fullName}-CV.pdf`)
   }
 
   return (
     <div className="container my-5">
       <div className="row">
+
         <div className="col-lg-2"></div>
 
         <div className="col-lg-8">
+
           <div className="d-flex justify-content-center align-items-center">
 
             <button onClick={downloadCV} style={{color:'#714a2f'}} className="btn me-2">
@@ -89,9 +93,11 @@ if (result.status == 201) pdf.save(`${resume.name}-CV.pdf`)
           <div className="p-5" ref={previewRef}>
             <Preview resumeData={resume} />
           </div>
+
         </div>
 
         <div className="col-lg-2"></div>
+
       </div>
     </div>
   )
