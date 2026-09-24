@@ -8,6 +8,18 @@ remove unwanted elements from component
 ->bootstrap cdn link
 -> react icons
 - project structuring (component creation)
+ ->react router dom for routing 
+ ->wrap app jsx with browserroute and make path using router inside routes inside routes on app component
+-> collect resumes details from userinputs using state(onchange) and sorted as a object in parent component 
+->display resume preview using state lifting because react only support undirectional data flow
+->send resume data to json server
+->create an instance using axios 
+->create request response cycle
+->create apiService file for configuring axios interceptors 
+-> connected with base-url
+->make api call for multiple request using httpmethod (GET,POST,PUT,DELETE)
+->make changes in resume after displaying id and put menthod 
+->download resume and post resume 
 
 
 
